@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booleans</title>
+    <link rel="stylesheet" href="rock-paper-scissors.css">
 </head>
 <body>
-    <p> Rock Paper Scissors</p>
-    <button onclick="
+    <p class="title"> Rock Paper Scissors</p>
+    <button class="move-button" onclick="
         playGame('rock')
-    ">Rock</button>
+    "><img src="Images/rock-emoji.png" class="move-icon" alt="rock-emoji"></button>
 
-    <button onclick="
+    <button class="move-button" onclick="
         playGame('paper');   
-    ">Paper</button>
+    "><img src="Images/paper-emoji.png" class="move-icon" alt="paper-emoji"></button>
     
 
-    <button onclick="
+    <button class="move-button" onclick="
         playGame('scissors')
-    ">Scissors</button>
+    "><img src="Images/scissors-emoji.png" class="move-icon" alt="scissors-emoji"></button>
 
     <p class="js-score"></p>
     <p class="js-result"></p>
@@ -29,7 +30,7 @@
         score.losses = 0;
         score.ties = 0;
         localStorage.removeItem('score');
-        updateScreElement();
+        updateScoreElement();
     ">Reset Score</button>
     <script>
         let score = JSON.parse(localStorage.getItem('score')) || {      // This JSON thing is to grab it and turn it back into an object
@@ -38,7 +39,7 @@
             ties: 0
         };
 
-        updateScreElement();
+        updateScoreElement();
 
         function playGame (playerMove) {
             const computerMove = pickComputerMove();
@@ -84,17 +85,17 @@
 
             localStorage.setItem('score', JSON.stringify(score));  // This is to make the object into a string
 
-            updateScreElement();
+            
 
             document.querySelector('.js-result').innerHTML = result;
 
             document.querySelector('js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
                     
+            updateScoreElement();
         }
 
-        function updateScreElement() {
-            document.querySelector('.js-score').innerHTML = `
-            Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
+        function updateScoreElement() {
+            document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
 
         }
 
