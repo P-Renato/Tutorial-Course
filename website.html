@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Heads or tail</title>
     <style>
-        .red-button {
-            background-color: red;
-            color: white;
-            border: none;
-        }
-        .yellow-button {
-            background-color: yellow;
-        }
+
     </style>
 </head>
 <body>
-    <button title="Good job!" class="red-button">
-        hello
+    <!-- <button>
+       9a
     </button>
-    
-    <p>
-        paragraph of <button class="yellow-button"> hello </button> text
-    </p>
+    <button class="secondButton" onclick="
+        document.querySelector('.secondButton').innerHTML = '9b done!' 
+    "> 9b</button> 
+    <p></p> -->
+
+
+
+    <button class="js-heads-button" onclick="
+       
+        console.log(heads.innerHTML);
+        localStorage.removeItem('coinResult');
+    ">heads</button>
+    <button class="js-tails-button" onclick="
+        const tails = document.querySelector('.js-tails-button');
+        console.log(tails.innerHTML)
+    ">tails</button>
+
+    <p class="js-text-input"></p>
 
     <script>
+        coinResult = '';
+        const heads = document.querySelector('.js-heads-button');
+            if (heads.innerHTML === 'heads') {
+                coinResult = 'heads'
+            } else {
+                coinResult = 'tails'
+            };
+        
+        console.log(coinResult)
+        document.querySelector('.js-text-input').innerHTML = `You chose: ${coinResult}.`
+        
 
         randomNumber = Math.random();
         if (randomNumber < 0.5) {

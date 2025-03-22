@@ -4,21 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Projects</title>
+    <link rel="stylesheet" href="domExercise.css">
 </head>
 <body>
     <p>YouTube Subscribe Button</p>
     <button onclick="
        subscribe()
-    " class="js-subscribe-button">Subscribe</button>
+    " class="js-subscribe-button subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculater</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="        // this is to make Enter run the calculateTotal function, so we don't need to click the button
+        handleCostKeydown(event);
+    ">
+    <button class="calculate-button" onclick="
+        calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
 
     <script>
+        function handleCostKeydown (event) {
+            if ( event.key === 'Enter') {
+              calculateTotal();
+            }    
+        }
+
+
+        function calculateTotal( ) {
+            const inputElement = document.querySelector('.js-cost-input');      // This reads the input as a string
+            let cost = Number(inputElement.value);                          // For that we use Number function to make the value a number
+
+            console.log(cost)
+            if (cost < 40) {
+                cost += 10;             // Now it reads the value as a number instead of string, and now can do the math
+            }
+            document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        };
+
         function subscribe() {
             const buttonElement = document.querySelector('.js-subscribe-button');
 
             if (buttonElement.innerText === 'Subscribe') {
-                buttonElement.innerHTML = 'Subscribed'
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed'); // We added here a new class in order to style it
             } else {
-                buttonElement.innerHTML = 'Subscribe'
+                buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed'); // We removed here the class, in order to change back
             }
         }
 
