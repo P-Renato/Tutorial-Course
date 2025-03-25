@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="exercises.css">
+</head>
+<body>
+    <button class="isNotToggled" onclick="toggleButton(this)">Gaming</button>
+    <button class="isNotToggled" onclick="toggleButton(this)">Music</button>
+    <button class="isNotToggled" onclick="toggleButton(this)">Tech</button>
+        
+    <script>
+        function toggleButton(button) {
+            button.classList.toggle('isToggled');
+        }
+
+        //! This did not work, but it should have
+    //   const clickButton = document.querySelector('.isNotToggled');
+    //     if(!clickButton.classList.contains('.isToggled')) {
+    //         clickButton.classList.add('.isToggled');
+
+    //     } else {
+    //         clickButton.classList.remove('.isToggled');
+
+    //     }
+    </script>
+</body>
+</html>     

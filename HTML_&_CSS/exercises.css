@@ -1,0 +1,11 @@
+.isNotToggled {
+    border: none;
+    padding: .8em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.isToggled {
+    background-color: black;
+    color: white;
+}
