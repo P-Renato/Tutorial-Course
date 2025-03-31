@@ -38,10 +38,12 @@ body {
     margin-top: 5em;
 }
 
-.reset-score-button {
+.reset-score-button,
+.auto-play-button {
     background-color: white;
     border: none;
     font-size: 15px;
     padding: 1vw 2vw;
     cursor: pointer;
 }
+

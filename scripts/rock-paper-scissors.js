@@ -7,6 +7,13 @@ let score = JSON.parse(localStorage.getItem('score')) || {      // This JSON thi
 
 updateScoreElement();
 
+function autoPlay () {
+    setInterval(function(){
+        const playerMove = pickComputerMove();
+        playGame(playerMove)
+    }, 1000)
+}
+
 function playGame (playerMove) {
     const computerMove = pickComputerMove();
 
@@ -51,7 +58,7 @@ function playGame (playerMove) {
 
     localStorage.setItem('score', JSON.stringify(score));  // This is to make the object into a string
 
-    
+    updateScoreElement();
 
     document.querySelector('.js-result').innerHTML = result;
 
@@ -61,7 +68,8 @@ function playGame (playerMove) {
 }
 
 function updateScoreElement() {
-    document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
+    document.querySelector('.js-score')
+    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
 
 }
 
