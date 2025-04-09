@@ -166,5 +166,30 @@ function unique(array) {
     }
     return result;
 }
+
 console.log(unique(['green', 'red', 'blue', 'red']));
 console.log(unique(['red', 'green', 'green', 'red']));
+
+console.clear()
+
+
+// 12 a
+
+const add = function(){
+    console.log(2+3)
+}
+add();
+add();
+
+// 12 b
+
+function runTwice(fun) {
+    fun();
+    fun();
+}
+
+runTwice (function(){
+    console.log('12b')
+});
+
+runTwice(add);
